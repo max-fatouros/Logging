@@ -7,61 +7,61 @@
 
 Logging::Logging(int LOG_LEVEL) : LOG_LEVEL(LOG_LEVEL) {
     #ifdef DEBUG
-        this->LOG_LEVEL = Levels::eDEBUG;
+        this->LOG_LEVEL = Level::eDEBUG;
     #elifdef INFO
-        this->LOG_LEVEL = Levels::eINFO;
+        this->LOG_LEVEL = Level::eINFO;
     #elifdef WARNING
-        this->LOG_LEVEL = Levels::eWARNING;
+        this->LOG_LEVEL = Level::eWARNING;
     #elifdef ERROR
-        this->LOG_LEVEL = Levels::eERROR;
+        this->LOG_LEVEL = Level::eERROR;
     #elifdef CRITICAL
-        this->LOG_LEVEL = Levels::eCRITICAL;
+        this->LOG_LEVEL = Level::eCRITICAL;
     #endif
 
 }
 
 void Logging::debug(const char *output) const {
-    if (LOG_LEVEL >= Levels::eDEBUG) {
+    if (LOG_LEVEL >= Level::eDEBUG) {
         std::string s;
         s += "[DEBUG]\t\t";
         s += output;
-        print(s, COLORS::eGREEN);
+        print(s, COLOR::eGREEN);
     }
 }
 
 void Logging::info(const char *output) {
-    if (LOG_LEVEL >= Logging::Levels::eINFO) {
+    if (LOG_LEVEL >= Logging::Level::eINFO) {
         std::string s;
         s += "[INFO]\t\t";
         s += output;
-        print(s, COLORS::eBLUE);
+        print(s, COLOR::eBLUE);
     }
 }
 
 void Logging::warning(const char *output) {
-    if (LOG_LEVEL >= Logging::Levels::eWARNING) {
+    if (LOG_LEVEL >= Logging::Level::eWARNING) {
         std::string s;
         s += "[WARNING]\t";
         s += output;
-        print(s, COLORS::eYELLOW);
+        print(s, COLOR::eYELLOW);
     }
 }
 
 void Logging::error(const char *output) {
-    if (LOG_LEVEL >= Logging::Levels::eERROR) {
+    if (LOG_LEVEL >= Logging::Level::eERROR) {
         std::string s;
         s += "[ERROR]\t\t";
         s += output;
-        print(s, COLORS::eORANGE);
+        print(s, COLOR::eORANGE);
     }
 }
 
 void Logging::critical(const char *output) {
-    if (LOG_LEVEL >= Logging::Levels::eCRITICAL) {
+    if (LOG_LEVEL >= Logging::Level::eCRITICAL) {
         std::string s;
         s += "[CRITICAL]\t";
         s += output;
-        print(s, COLORS::eRED);
+        print(s, COLOR::eRED);
     }
 }
 

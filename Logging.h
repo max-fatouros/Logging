@@ -9,7 +9,7 @@
 
 class Logging {
 public:
-    enum Levels {
+    enum Level {
         eCRITICAL,
         eERROR,
         eWARNING,
@@ -28,7 +28,7 @@ public:
 private:
     int LOG_LEVEL;
 
-    enum COLORS {
+    enum COLOR {
         eRED,
         eORANGE,
         eYELLOW,
@@ -36,11 +36,11 @@ private:
         eGREEN
     };
 
-    /// A COLORS enum value will be passed to an
+    /// A COLOR enum value will be passed to an
     /// index of this to find the corresponding string value;
     ///
     /// List of 8 bit r;g;b color values
-    /// Index corresponds to COLORS enum
+    /// Index corresponds to COLOR enum
     const char *COLOR_CODE[5] {
     "204;0;0",    ///< eRED
     "255;128;0",  ///< eORANGE
