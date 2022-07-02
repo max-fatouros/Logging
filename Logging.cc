@@ -22,43 +22,58 @@ Logging::Logging(int LOG_LEVEL) : LOG_LEVEL(LOG_LEVEL) {
 
 void Logging::debug(const char *output) const {
     if (LOG_LEVEL >= Levels::eDEBUG) {
-        print(output, COLORS::eGREEN);
+        std::string s;
+        s += "[DEBUG]\t\t";
+        s += output;
+        print(s, COLORS::eGREEN);
     }
 }
 
 void Logging::info(const char *output) {
     if (LOG_LEVEL >= Logging::Levels::eINFO) {
-        print(output, COLORS::eBLUE);
+        std::string s;
+        s += "[INFO]\t\t";
+        s += output;
+        print(s, COLORS::eBLUE);
     }
 }
 
 void Logging::warning(const char *output) {
     if (LOG_LEVEL >= Logging::Levels::eWARNING) {
-        print(output, COLORS::eYELLOW);
+        std::string s;
+        s += "[WARNING]\t";
+        s += output;
+        print(s, COLORS::eYELLOW);
     }
 }
 
 void Logging::error(const char *output) {
     if (LOG_LEVEL >= Logging::Levels::eERROR) {
-        print(output, COLORS::eORANGE);
+        std::string s;
+        s += "[ERROR]\t\t";
+        s += output;
+        print(s, COLORS::eORANGE);
     }
 }
 
 void Logging::critical(const char *output) {
     if (LOG_LEVEL >= Logging::Levels::eCRITICAL) {
-        print(output, COLORS::eRED);
+        std::string s;
+        s += "[CRITICAL]\t";
+        s += output;
+        print(s, COLORS::eRED);
     }
 }
 
-void Logging::print(const char *string, int color) const {
-    std::string output = "\033[";  ///< Escape code for Ascii color code
-    output += "38;2;";  ///< Escape code for the r;g;b color code to follow
-    output += COLOR_CODE[color];
-    output += "m";
+void Logging::print(std::string output, int color) const {
+    std::string s = "\033[";  ///< Escape code for Ascii color code
+    s += "38;2;";  ///< Escape code for the r;g;b color code to follow
+    s += COLOR_CODE[color];
+    s += "m";
 
-    output += string;
+    s += output;
 
-    output += "\033[;0m";  ///< Reset code
-    std::cout << output << std::endl;
+    s += "\033[;0m";  ///< Reset code
+    std::cout << s << std::endl;
 }
 

@@ -5,6 +5,8 @@
 #ifndef LOGGING_LOGGING_H
 #define LOGGING_LOGGING_H
 
+#include <string>
+
 class Logging {
 public:
     enum Levels {
@@ -47,7 +49,7 @@ private:
     "0;170;0"     ///< eGREEN
     };
 
-    void print(const char *string, int color) const;
+    void print(std::string output, int color) const;
 
 };
 
