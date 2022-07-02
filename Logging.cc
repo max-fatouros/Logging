@@ -7,46 +7,46 @@
 
 Logging::Logging(int LOG_LEVEL) : LOG_LEVEL(LOG_LEVEL) {
     #ifdef DEBUG
-        this->LOG_LEVEL = levels::LDEBUG;
+        this->LOG_LEVEL = Levels::eDEBUG;
     #elifdef INFO
-        this->LOG_LEVEL = levels::LINFO;
+        this->LOG_LEVEL = Levels::eINFO;
     #elifdef WARNING
-        this->LOG_LEVEL = levels::LWARNING;
+        this->LOG_LEVEL = Levels::eWARNING;
     #elifdef ERROR
-        this->LOG_LEVEL = levels::LERROR;
+        this->LOG_LEVEL = Levels::eERROR;
     #elifdef CRITICAL
-        this->LOG_LEVEL = levels::LCRITICAL;
+        this->LOG_LEVEL = Levels::eCRITICAL;
     #endif
 
 }
 
 void Logging::debug(const char *output) const {
-    if (LOG_LEVEL >= levels::LDEBUG) {
-        print(output, COLORS::GREEN);
+    if (LOG_LEVEL >= Levels::eDEBUG) {
+        print(output, COLORS::eGREEN);
     }
 }
 
 void Logging::info(const char *output) {
-    if (LOG_LEVEL >= Logging::levels::LINFO) {
-        print(output, COLORS::BLUE);
+    if (LOG_LEVEL >= Logging::Levels::eINFO) {
+        print(output, COLORS::eBLUE);
     }
 }
 
 void Logging::warning(const char *output) {
-    if (LOG_LEVEL >= Logging::levels::LWARNING) {
-        print(output, COLORS::YELLOW);
+    if (LOG_LEVEL >= Logging::Levels::eWARNING) {
+        print(output, COLORS::eYELLOW);
     }
 }
 
 void Logging::error(const char *output) {
-    if (LOG_LEVEL >= Logging::levels::LERROR) {
-        print(output, COLORS::ORANGE);
+    if (LOG_LEVEL >= Logging::Levels::eERROR) {
+        print(output, COLORS::eORANGE);
     }
 }
 
 void Logging::critical(const char *output) {
-    if (LOG_LEVEL >= Logging::levels::LCRITICAL) {
-        print(output, COLORS::RED);
+    if (LOG_LEVEL >= Logging::Levels::eCRITICAL) {
+        print(output, COLORS::eRED);
     }
 }
 

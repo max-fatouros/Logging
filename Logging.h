@@ -7,12 +7,12 @@
 
 class Logging {
 public:
-    enum levels {
-        LCRITICAL,
-        LERROR,
-        LWARNING,
-        LINFO,
-        LDEBUG
+    enum Levels {
+        eCRITICAL,
+        eERROR,
+        eWARNING,
+        eINFO,
+        eDEBUG
     };
 
     explicit Logging(int LOG_LEVEL);
@@ -27,11 +27,11 @@ private:
     int LOG_LEVEL;
 
     enum COLORS {
-        RED,
-        ORANGE,
-        YELLOW,
-        BLUE,
-        GREEN
+        eRED,
+        eORANGE,
+        eYELLOW,
+        eBLUE,
+        eGREEN
     };
 
     /// A COLORS enum value will be passed to an
@@ -40,11 +40,11 @@ private:
     /// List of 8 bit r;g;b color values
     /// Index corresponds to COLORS enum
     const char *COLOR_CODE[5] {
-    "204;0;0",  ///< RED
-    "255;128;0",  ///< ORANGE
-    "240;199;6",  ///< YELLOW
-    "0;111;184",  ///< BLUE
-    "0;170;0"  ///< GREEN
+    "204;0;0",    ///< eRED
+    "255;128;0",  ///< eORANGE
+    "240;199;6",  ///< eYELLOW
+    "0;111;184",  ///< eBLUE
+    "0;170;0"     ///< eGREEN
     };
 
     void print(const char *string, int color) const;
