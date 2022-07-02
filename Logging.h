@@ -9,6 +9,8 @@
 
 class Logging {
 public:
+    explicit Logging(int LOG_LEVEL, bool clear=false);
+
     enum Level {
         eCRITICAL,
         eERROR,
@@ -16,8 +18,6 @@ public:
         eINFO,
         eDEBUG
     };
-
-    explicit Logging(int LOG_LEVEL);
 
     void debug(const char *output) const;
     void info(const char *output);
@@ -27,6 +27,7 @@ public:
 
 private:
     int LOG_LEVEL;
+    const char *logFile = "logs.txt";
 
     enum COLOR {
         eRED,

@@ -4,20 +4,25 @@
 
 #include "Logging.h"
 #include <iostream>
+#include <fstream>
 
-Logging::Logging(int LOG_LEVEL) : LOG_LEVEL(LOG_LEVEL) {
+Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
     #ifdef DEBUG
         this->LOG_LEVEL = Level::eDEBUG;
-    #elifdef INFO
+    #elif defined(INFO)
         this->LOG_LEVEL = Level::eINFO;
-    #elifdef WARNING
+    #elif defined(WARNING)
         this->LOG_LEVEL = Level::eWARNING;
-    #elifdef ERROR
+    #elif defined(ERROR)
         this->LOG_LEVEL = Level::eERROR;
-    #elifdef CRITICAL
+    #elif defined(CRITICAL)
         this->LOG_LEVEL = Level::eCRITICAL;
     #endif
 
+    if (clear) {
+        std::ofstream file(logFile, std::fstream::trunc);
+        file.close();
+    }
 }
 
 void Logging::debug(const char *output) const {
@@ -25,6 +30,9 @@ void Logging::debug(const char *output) const {
         std::string s;
         s += "[DEBUG]\t\t";
         s += output;
+        std::ofstream file(logFile, std::fstream::app);
+        file << s << std::endl;
+        file.close();
         print(s, COLOR::eGREEN);
     }
 }
@@ -34,6 +42,9 @@ void Logging::info(const char *output) {
         std::string s;
         s += "[INFO]\t\t";
         s += output;
+        std::ofstream file(logFile, std::fstream::app);
+        file << s << std::endl;
+        file.close();
         print(s, COLOR::eBLUE);
     }
 }
@@ -43,6 +54,9 @@ void Logging::warning(const char *output) {
         std::string s;
         s += "[WARNING]\t";
         s += output;
+        std::ofstream file(logFile, std::fstream::app);
+        file << s << std::endl;
+        file.close();
         print(s, COLOR::eYELLOW);
     }
 }
@@ -52,6 +66,9 @@ void Logging::error(const char *output) {
         std::string s;
         s += "[ERROR]\t\t";
         s += output;
+        std::ofstream file(logFile, std::fstream::app);
+        file << s << std::endl;
+        file.close();
         print(s, COLOR::eORANGE);
     }
 }
@@ -61,6 +78,9 @@ void Logging::critical(const char *output) {
         std::string s;
         s += "[CRITICAL]\t";
         s += output;
+        std::ofstream file(logFile, std::fstream::app);
+        file << s << std::endl;
+        file.close();
         print(s, COLOR::eRED);
     }
 }
