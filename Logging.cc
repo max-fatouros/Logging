@@ -20,8 +20,11 @@ Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
     #endif
 
     if (clear) {
-        std::ofstream file(logFile, std::fstream::trunc);
+        std::ofstream file(logOut, std::fstream::trunc);
         file.close();
+
+        std::ofstream varFile(logVars, std::fstream::trunc);
+        varFile.close();
     }
 }
 
@@ -30,7 +33,7 @@ void Logging::debug(const char *output) const {
         std::string s;
         s += "[DEBUG]\t\t";
         s += output;
-        std::ofstream file(logFile, std::fstream::app);
+        std::ofstream file(logOut, std::fstream::app);
         file << s << std::endl;
         file.close();
         print(s, COLOR::eGREEN);
@@ -42,7 +45,7 @@ void Logging::info(const char *output) {
         std::string s;
         s += "[INFO]\t\t";
         s += output;
-        std::ofstream file(logFile, std::fstream::app);
+        std::ofstream file(logOut, std::fstream::app);
         file << s << std::endl;
         file.close();
         print(s, COLOR::eBLUE);
@@ -54,7 +57,7 @@ void Logging::warning(const char *output) {
         std::string s;
         s += "[WARNING]\t";
         s += output;
-        std::ofstream file(logFile, std::fstream::app);
+        std::ofstream file(logOut, std::fstream::app);
         file << s << std::endl;
         file.close();
         print(s, COLOR::eYELLOW);
@@ -66,7 +69,7 @@ void Logging::error(const char *output) {
         std::string s;
         s += "[ERROR]\t\t";
         s += output;
-        std::ofstream file(logFile, std::fstream::app);
+        std::ofstream file(logOut, std::fstream::app);
         file << s << std::endl;
         file.close();
         print(s, COLOR::eORANGE);
@@ -78,11 +81,17 @@ void Logging::critical(const char *output) {
         std::string s;
         s += "[CRITICAL]\t";
         s += output;
-        std::ofstream file(logFile, std::fstream::app);
+        std::ofstream file(logOut, std::fstream::app);
         file << s << std::endl;
         file.close();
         print(s, COLOR::eRED);
     }
+}
+
+void Logging::log(const char *key, const char *output) {
+    std::ofstream file(logVars, std::fstream::app);
+    file << "[" << key << "]:\t\t" << output << std::endl;
+    file.close();
 }
 
 void Logging::print(std::string output, int color) const {

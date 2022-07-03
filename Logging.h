@@ -25,9 +25,13 @@ public:
     void error(const char *output);
     void critical(const char *output);
 
+    void log(const char *key, const char *output);
+
 private:
     int LOG_LEVEL;
-    const char *logFile = "logs.txt";
+    const char *logOut = "logs.txt";
+    const char *logVars = "log_vars.txt";
+
 
     enum COLOR {
         eRED,
