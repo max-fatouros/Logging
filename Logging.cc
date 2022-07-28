@@ -12,7 +12,7 @@ Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
 #elif defined(INFO)
 	this->LOG_LEVEL = Level::eINFO;
 #elif defined(WARNING)
-  this->LOG_LEVEL = Level::eWARNING;
+	this->LOG_LEVEL = Level::eWARNING;
 #elif defined(ERROR)
   this->LOG_LEVEL = Level::eERROR;
 #elif defined(CRITICAL)
