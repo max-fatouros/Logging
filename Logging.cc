@@ -21,7 +21,7 @@ Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
 
   if (clear) {
     std::ofstream file(logOut, std::fstream::trunc);
-    file.close();
+		file.close();
 
     std::ofstream varFile(varLogOut, std::fstream::trunc);
     varFile.close();
