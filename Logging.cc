@@ -19,7 +19,7 @@ Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
   this->LOG_LEVEL = Level::eCRITICAL;
 #endif
 
-  if (clear) {
+	if (clear) {
     std::ofstream file(logOut, std::fstream::trunc);
     file.close();
 
