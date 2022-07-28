@@ -18,7 +18,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           style: LLVM
-          tidy-checks: -*  # Disabes clang-tidy so that we can use only clang-format to lint.
+          tidy-checks: '-*'  # Disabes clang-tidy so that we can use only clang-format to lint.
 
       - name: Fail fast?!
         if: steps.linter.outputs.checks-failed > 0
