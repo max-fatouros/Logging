@@ -9,7 +9,7 @@
 Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
     #ifdef DEBUG
         this->LOG_LEVEL = Level::eDEBUG;
-    #elif defined(INFO)
+	#elif defined(INFO)
         this->LOG_LEVEL = Level::eINFO;
     #elif defined(WARNING)
         this->LOG_LEVEL = Level::eWARNING;
@@ -41,7 +41,7 @@ void Logging::debug(const char *output) const {
 }
 
 void Logging::info(const char *output) {
-    if (LOG_LEVEL >= Logging::Level::eINFO) {
+	if (LOG_LEVEL >= Logging::Level::eINFO) {
         std::string s;
         s += "[INFO]\t\t";
         s += output;
