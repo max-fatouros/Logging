@@ -16,7 +16,7 @@ Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
 #elif defined(ERROR)
   this->LOG_LEVEL = Level::eERROR;
 #elif defined(CRITICAL)
-  this->LOG_LEVEL = Level::eCRITICAL;
+	this->LOG_LEVEL = Level::eCRITICAL;
 #endif
 
 	if (clear) {
