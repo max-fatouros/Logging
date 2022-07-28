@@ -8,18 +8,18 @@
 
 Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
 #ifdef DEBUG
-	this->LOG_LEVEL = Level::eDEBUG;
+  this->LOG_LEVEL = Level::eDEBUG;
 #elif defined(INFO)
-	this->LOG_LEVEL = Level::eINFO;
+  this->LOG_LEVEL = Level::eINFO;
 #elif defined(WARNING)
-	this->LOG_LEVEL = Level::eWARNING;
+  this->LOG_LEVEL = Level::eWARNING;
 #elif defined(ERROR)
   this->LOG_LEVEL = Level::eERROR;
 #elif defined(CRITICAL)
-	this->LOG_LEVEL = Level::eCRITICAL;
+  this->LOG_LEVEL = Level::eCRITICAL;
 #endif
 
-	if (clear) {
+  if (clear) {
     std::ofstream file(logOut, std::fstream::trunc);
     file.close();
 
@@ -30,7 +30,7 @@ Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
 
 void Logging::debug(const char *output) const {
   if (LOG_LEVEL >= Level::eDEBUG) {
-	std::string s;
+    std::string s;
     s += "[DEBUG]\t\t";
     s += output;
 		std::ofstream file(logOut, std::fstream::app);
