@@ -30,7 +30,7 @@ Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
 
 void Logging::debug(const char *output) const {
   if (LOG_LEVEL >= Level::eDEBUG) {
-    std::string s;
+	std::string s;
     s += "[DEBUG]\t\t";
     s += output;
     std::ofstream file(logOut, std::fstream::app);
