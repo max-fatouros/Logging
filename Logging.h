@@ -29,8 +29,8 @@ public:
 
 private:
     int LOG_LEVEL;
-    const char *logOut = "logs.txt";
-    const char *logVars = "log_vars.txt";
+    const char *logOut = "log.txt";
+    const char *varLogOut = "var_log.txt";
 
 
     enum COLOR {

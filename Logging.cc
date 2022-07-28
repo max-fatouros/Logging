@@ -23,7 +23,7 @@ Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
         std::ofstream file(logOut, std::fstream::trunc);
         file.close();
 
-        std::ofstream varFile(logVars, std::fstream::trunc);
+        std::ofstream varFile(varLogOut, std::fstream::trunc);
         varFile.close();
     }
 }
@@ -89,8 +89,8 @@ void Logging::critical(const char *output) {
 }
 
 void Logging::log(const char *key, const char *output) {
-    std::ofstream file(logVars, std::fstream::app);
-    file << "[" << key << "]:\t\t" << output << std::endl;
+    std::ofstream file(varLogOut, std::fstream::app);
+    file << "[" << key << "]\t\t" << output << std::endl;
     file.close();
 }
 
