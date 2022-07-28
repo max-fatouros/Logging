@@ -8,7 +8,7 @@
 
 Logging::Logging(int LOG_LEVEL, bool clear) : LOG_LEVEL(LOG_LEVEL) {
 #ifdef DEBUG
-  this->LOG_LEVEL = Level::eDEBUG;
+	this->LOG_LEVEL = Level::eDEBUG;
 #elif defined(INFO)
   this->LOG_LEVEL = Level::eINFO;
 #elif defined(WARNING)
