@@ -19,6 +19,7 @@ jobs:
         with:
           style: file
           tidy-checks: '-*' 
+          lines-changed-only: true
 
       - name: Fail fast?!
         if: steps.linter.outputs.checks-failed > 0
