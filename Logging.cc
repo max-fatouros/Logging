@@ -34,7 +34,7 @@ void Logging::debug(const char *output) const {
     s += "[DEBUG]\t\t";
     s += output;
     std::ofstream file(logOut, std::fstream::app);
-    file << s << std::endl;
+		file << s << std::endl;
     file.close();
     print(s, COLOR::eGREEN);
   }
