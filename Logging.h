@@ -9,54 +9,52 @@
 
 class Logging {
 public:
-    explicit Logging(int LOG_LEVEL, bool clear=false);
+  explicit Logging(int LOG_LEVEL);
 
-    enum Level {
-        eCRITICAL,
-        eERROR,
-        eWARNING,
-        eINFO,
-        eDEBUG
-    };
+  enum Level {
+    eCRITICAL,
+    eERROR,
+    eWARNING,
+    eINFO,
+    eDEBUG
+  };
 
-    void debug(const char *output) const;
-    void info(const char *output);
-    void warning(const char *output);
-    void error(const char *output);
-    void critical(const char *output);
+  void debug(const char *output) const;
+  void info(const char *output);
+  void warning(const char *output);
+  void error(const char *output);
+  void critical(const char *output);
 
-    void log(const char *key, const char *output);
+  void log(const char *key, const char *output);
 
 private:
-    int LOG_LEVEL;
-    const char *logOut = "logs.txt";
-    const char *logVars = "log_vars.txt";
+  int LOG_LEVEL;
+  const char *logOut  = "logs.txt";
+  const char *logVars = "log_vars.txt";
 
+  enum COLOR {
+    eRED,
+    eORANGE,
+    eYELLOW,
+    eBLUE,
+    eGREEN
+  };
 
-    enum COLOR {
-        eRED,
-        eORANGE,
-        eYELLOW,
-        eBLUE,
-        eGREEN
-    };
+  /// A COLOR enum value will be passed to an
+  /// index of this to find the corresponding string value;
+  ///
+  /// List of 8 bit r;g;b color values
+  /// Index corresponds to COLOR enum
+  const char *COLOR_CODE[5]{
+      "204;0;0",  ///< eRED
+      "255;128;0",///< eORANGE
+      "240;199;6",///< eYELLOW
+      "0;111;184",///< eBLUE
+      "0;170;0"   ///< eGREEN
+  };
 
-    /// A COLOR enum value will be passed to an
-    /// index of this to find the corresponding string value;
-    ///
-    /// List of 8 bit r;g;b color values
-    /// Index corresponds to COLOR enum
-    const char *COLOR_CODE[5] {
-    "204;0;0",    ///< eRED
-    "255;128;0",  ///< eORANGE
-    "240;199;6",  ///< eYELLOW
-    "0;111;184",  ///< eBLUE
-    "0;170;0"     ///< eGREEN
-    };
-
-    void print(std::string output, int color) const;
-
+  void print(std::string output, int color) const;
 };
 
 
-#endif //LOGGING_LOGGING_H
+#endif//LOGGING_LOGGING_H
