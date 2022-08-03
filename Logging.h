@@ -56,5 +56,6 @@ private:
   void print(std::string output, int color) const;
 };
 
+extern Logging logs;
 
 #endif//LOGGING_LOGGING_H
