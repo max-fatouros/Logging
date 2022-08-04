@@ -1,8 +1,9 @@
 # Generated from CLion C/C++ Code Style settings
 BasedOnStyle: LLVM
 AccessModifierOffset: -2
-AlignAfterOpenBracket: true
+AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
 AlignOperands: true
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
