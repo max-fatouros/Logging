@@ -21,7 +21,7 @@ Logging::Logging(int LOG_LEVEL) : LOG_LEVEL(LOG_LEVEL) {
     this->LOG_LEVEL = Level::eCRITICAL;
   #endif
 
-  //clang-format on
+  // clang-format on
 
 
   std::ofstream file(logOut, std::fstream::trunc);
