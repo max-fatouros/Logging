@@ -99,7 +99,7 @@ void Logging::log(const char *key, const char *output) {
 
 void Logging::print(std::string output, int color) const {
   std::string s = "\033[";///< Escape code for Ascii color code
-  s += "38;2;";           ///< Escape code for the r;g;b color code to follow
+  s += "38;5;";           ///< Escape code for the r;g;b color code to follow
   s += COLOR_CODE[color];
   s += "m";
 

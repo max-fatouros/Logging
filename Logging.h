@@ -40,17 +40,17 @@ private:
     eGREEN
   };
 
-  /// A COLOR enum value will be passed to an
+  /// A COLOR enum value will be passed to the
   /// index of this to find the corresponding string value;
   ///
-  /// List of 8 bit r;g;b color values
+  /// List of 8 bit color values
   /// Index corresponds to COLOR enum
   const char *COLOR_CODE[5]{
-      "204;0;0",  ///< eRED
-      "255;128;0",///< eORANGE
-      "240;199;6",///< eYELLOW
-      "0;111;184",///< eBLUE
-      "0;170;0"   ///< eGREEN
+      "124",  ///< eRED
+      "208",  ///< eORANGE
+      "220",  ///< eYELLOW
+      "26",   ///< eBLUE
+      "34"    ///< eGREEN
   };
 
   void print(std::string output, int color) const;
